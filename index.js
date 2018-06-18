@@ -5,16 +5,22 @@ client.on('ready', () => {
     console.log('CloudBot is Operational');
 });
 
-const prefix = "!";
-client.on("message", (message) => {
-  if (!message.content.startsWith(prefix)) return;
+client.on("message", message => {
+  if (message.author.bot) return;
+  if(message.content.indexOf(config.prefix) !== 0) return;
 
-  if (message.content.startsWith(prefix + "Test")) {
-    message.channel.send("Test 1,2,3");
-  } else
-  if (message.content.startsWith(prefix + "Sample")) {
-    message.channel.send("Sample 1,2,3");
+  //
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+
+  //
+  try {
+    let commandFile = require(`./commands/${command}.js`);
+    commandFile.run(client, message, args);
+  } catch (err) {
+    console.error(err);
   }
 });
+
 
 client.login(process.env.TOKEN);
