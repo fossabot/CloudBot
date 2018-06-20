@@ -14,4 +14,4 @@ const embed = new Discord.RichEmbed()
   // Error 502
   .addfield("Error 502","[502](https://github.com/Cloudbox/Cloudbox/wiki/FAQ#error-502).");
 // Send message
-channel.send({ embed });
+message.channel.send({embed});
