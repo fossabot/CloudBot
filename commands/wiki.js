@@ -1,30 +1,17 @@
 // Wiki.js start
-const embed = {
+const embed = new Discord.RichEmbed()
   // Description
-  "description": "Require help? Check out our [documentation](https://github.com/Cloudbox/Cloudbox/wiki).",
+  .setDescription("Require help? Check out our [documentation](https://github.com/Cloudbox/Cloudbox/wiki).")
   // Select color purple
-  "color": 11141554,
+  .setcolor(11141554)
   // Thumbnail for github
-  "thumbnail": {
-    "url": "https://i.imgur.com/jLqqJPP.png"
-  },
+  .setThumbnail("https://i.imgur.com/jLqqJPP.png")
   // Extra options fields
-  "fields": [
-    {
-      // FAQ
-      "name": "FAQ",
-      "value": "[Frequently asked questions](https://github.com/Cloudbox/Cloudbox/wiki/FAQ)."
-    },
-    {
-      // Updating cloudbox
-      "name": "Updating Cloudbox",
-      "value": "[Errors during git pull](https://github.com/Cloudbox/Cloudbox/wiki/FAQ#updating-cloudbox)."
-    },
-      // Error 502
-      "name": "Error 502",
-      "value": "[502](https://github.com/Cloudbox/Cloudbox/wiki/FAQ#error-502)."
-    }
-  ]
-};
+  // FAQ
+  .addField("FAQ","[Frequently asked questions](https://github.com/Cloudbox/Cloudbox/wiki/FAQ).")
+  // Updating cloudbox
+  .addfield("Updating Cloudbox", "[Errors during git pull](https://github.com/Cloudbox/Cloudbox/wiki/FAQ#updating-cloudbox).")
+  // Error 502
+  .addfield("Error 502","[502](https://github.com/Cloudbox/Cloudbox/wiki/FAQ#error-502).");
 // Send message
 channel.send({ embed });
