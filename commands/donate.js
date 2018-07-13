@@ -4,6 +4,7 @@ message.channel.send({embed: {
   description: `
 Wish to Donate?
 https://paypal.me/l3uddz
+https://monzo.me/jamesbayliss9 (Apple Pay / Google Pay - No Fees)
 `
 }});
 }
